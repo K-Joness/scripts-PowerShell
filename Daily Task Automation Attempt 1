@@ -1,0 +1,41 @@
+#Daily Task Automation Attempt1
+#Opens Spotify for the breakfast tunes
+
+ start-process -file C:\Users\12282\AppData\Roaming\Spotify\Spotify.exe
+
+    start-sleep -seconds 5
+
+#Opens the Youtube, Skillpipe, LinkedIn in a new chrome window
+$url1 = "https://linkedin.com/feed/"
+$url3 = "https://www.youtube.com/"
+$url4 = "https://www.skillpipe.com/#/bookshelf/books" 
+
+[System.Diagnostics.process]::start("chrome.exe","-new-window $url3")
+    start-sleep -seconds 3
+    [System.Diagnostics.Process]::start("chrome.exe","$url1") 
+        start-sleep -seconds 3
+        [system.diagnostics.process]::start("chrome.exe","$url4")
+            start-sleep -seconds 5
+            
+  #Opens the godeploy in incognitio
+
+$url2 = "https://lms.godeploy.it"
+
+[system.diagnostics.process]::start("chrome.exe", "--incognito $url2")
+        start-sleep -seconds 5
+
+        Start-Process -File $env:LOCALAPPDATA\Microsoft\Teams\Update.exe -ArgumentList '--processStart "Teams.exe"'
+
+        start-sleep -seconds 20
+
+    #The folloiwing video clip plays at the end of the script to signify it's completetion     
+
+    $url5 = "https://www.youtube.com/watch?v=IIeSHPUNE7M#?t=17"
+
+    #if the restore windows popup is active on the edge browser, the video will not play
+    
+        [system.diagnostics.process]::start("msedge.exe","$url5")
+            start-sleep -seconds 7
+     #I currently have not yet found a way to have the video stop at a specific time, so this command is the hotfix for this.       
+
+            get-process msedge | stop-process 
