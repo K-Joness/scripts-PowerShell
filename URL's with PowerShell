@@ -1,0 +1,14 @@
+#There exist a way to navigate to specific webpages with powershell. This script more or less cover the methods I've discovered in the past weeks
+
+
+  #Opens a webpage with Google Chrome
+  
+    #Opens a webpage with Google Chrome in a incognito window
+    
+  
+  #Opens a webPage with Microsoft edge
+  
+    #Opens a webpage with a Microsoft Edge in a privatge window
+    
+    
+  #Opens a youtube video to a specific time  
