@@ -1,0 +1,35 @@
+#Active Directory Users, Groups, and OU's
+#Scopes: Universal, Global, Domain Local
+
+#Users:
+    #Create A User
+    New-ADUser -Name <Firstname> -DisplayName "<Firstname Lastname>"
+
+    #Modify a users attributes
+    Set-ADUser
+
+    #Remove a user
+    Remove-ADUser
+
+#Groups:
+    #Create a group
+    New-ADGroup "<Group Name>" -GroupScope Global
+
+    #Add members to the group
+    New-ADGroupMember "<Group Name>" -Members <name of user> 
+
+    #Modifiy Properties of the group
+    Set-ADGroup 
+
+    #Move ther group to an OU
+    Move-ADObject -Identity "CN=<Group Name>,CN=Users,DC=<domain>,DC=<domain suffix>" -TargetPath "OU=<OU Name>,DC=<Domain>,DC=<domain suffix>"
+
+    #Find members in the group
+    Get-ADGroupMember 
+
+#OU'S:
+    #Create an OU
+    New-ADOrganiazationalUnit -Name <OU Name>
+
+    #Modify a OU's Properties
+    Set-ADOrganizationalUnit
